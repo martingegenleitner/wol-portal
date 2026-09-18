@@ -1,0 +1,14 @@
+services:
+  wol-portal:
+    build: .
+    # Host networking so the Wake-on-LAN broadcast reaches the LAN segment.
+    network_mode: host
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      WOLP_HOSTS_FILE: /config/hosts.yaml
+      WOLP_KNOWN_HOSTS: /config/known_hosts
+    volumes:
+      - ./hosts.yaml:/config/hosts.yaml:ro
+      - ./known_hosts:/config/known_hosts:ro
+      - ./keys:/keys:ro   # must be readable by uid 65532 (nonroot)

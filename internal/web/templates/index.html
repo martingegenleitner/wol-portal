@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WoL Portal</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>WoL Portal</h1>
+    <div class="user">
+      <span id="user"></span>
+      <button id="logout" type="button" class="secondary">Log out</button>
+    </div>
+  </header>
+  <main>
+    <p id="banner" role="alert" hidden></p>
+    <ul id="hosts" aria-live="polite"></ul>
+    <noscript>This page needs JavaScript to show host states.</noscript>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>

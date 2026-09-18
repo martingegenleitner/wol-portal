@@ -1,0 +1,7 @@
+/wol-portal
+/bin/
+hosts.yaml
+.env
+*.pem
+*.ed25519
+known_hosts

@@ -1,0 +1,17 @@
+# Hosts shown in the portal. Copy to hosts.yaml and adjust.
+hosts:
+  - name: "Build server"                    # display name (also used to derive the host id)
+    ip: 192.168.1.20                        # used for the reachability probe and SSH
+    mac: "aa:bb:cc:dd:ee:ff"                # target of the Wake-on-LAN packet
+    shutdown_command: "sysconf appliance poweroff -f"   # run on the host over SSH
+    ssh_key: /keys/build-server.ed25519     # private key (no passphrase)
+
+  - name: "NAS"
+    ip: 192.168.1.30
+    mac: "11:22:33:44:55:66"
+    shutdown_command: "sysconf appliance poweroff -f"
+    ssh_key: /keys/nas.ed25519
+    # optional
+    ssh_user: wol-portal                    # default: WOLP_SSH_DEFAULT_USER (wol-portal)
+    ssh_port: 22                            # default 22; also the port probed for "online"
+    allowed_groups: [storage-admins]        # who may power this host on/off (admins always may)

@@ -1,0 +1,4 @@
+.git
+.env
+hosts.yaml
+*.ed25519
